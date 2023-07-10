@@ -27,6 +27,9 @@ class Library {
         }
         return "Book not found.";
     }
+    getAllBooks() {
+        return this.books;
+    }
 }
 
 // Create instances of Book and Library
@@ -72,4 +75,14 @@ form.addEventListener("submit", function (event) {
     } else {
         searchResults.textContent = foundBook;
     }
+});
+const showAllBooksButton = document.getElementById("showAllBooksButton");
+
+showAllBooksButton.addEventListener("click", function () {
+    const allBooks = library.getAllBooks();
+    let results = "";
+    for (let book of allBooks) {
+        results += `${book.title} by ${book.author}, ${book.pages} pages<br>`;
+    }
+    searchResults2.innerHTML = results;
 });

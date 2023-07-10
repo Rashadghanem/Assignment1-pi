@@ -27,6 +27,9 @@ class Library {
         }
         return "Book not found.";
     }
+    getAllBooks() {
+        return this.books;
+    }
 }
 
 const book1 = new Book("book1", "Rashad", 1);
@@ -71,4 +74,14 @@ form.addEventListener("submit", function (event) {
     } else {
         searchResults.textContent = foundBook;
     }
+});
+const showAllBooksButton = document.getElementById("showAllBooksButton");
+
+showAllBooksButton.addEventListener("click", function () {
+    const allBooks = library.getAllBooks();
+    let results = "";
+    for (let book of allBooks) {
+        results += `${book.title} by ${book.author}, ${book.pages} pages<br>`;
+    }
+    searchResults2.innerHTML = results;
 });

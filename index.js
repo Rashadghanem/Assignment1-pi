@@ -41,6 +41,22 @@ library.addBook(book3);
 library.addBook(book4);
 
 
+const addBookForm = document.getElementById("addBookForm");
+
+addBookForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const title = document.getElementById("bookTitle").value;
+    const author = document.getElementById("bookAuthor").value;
+    const pages = document.getElementById("bookPages").value;
+
+    const newBook = new Book(title, author, pages);
+    library.addBook(newBook);
+
+    addBookForm.reset();
+});
+
+
 const form = document.getElementById("searchForm");
 const searchResults = document.getElementById("searchResults");
 
